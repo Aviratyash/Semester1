@@ -101,3 +101,40 @@ else
   max=$c
 fi
 echo "The maximum number is: $max"
+
+
+
+# User password
+
+#!/bin/bash
+
+# Define the correct password
+CORRECT_PASSWORD="secret123"
+
+# Initialize attempt counter
+attempt=1
+max_attempts=3
+
+# Loop to prompt the user up to 3 times
+while [ $attempt -le $max_attempts ]; do
+    # Prompt the user for the password
+    read -sp "Enter the password: " user_password
+    echo
+
+    # Check if the entered password is correct
+    if [ "$user_password" == "$CORRECT_PASSWORD" ]; then
+        echo "Correct Password"
+        exit 0
+    else
+        echo "Wrong Password"
+    fi
+
+    # Increment attempt counter
+    ((attempt++))
+
+    # Check if maximum attempts have been reached
+    if [ $attempt -gt $max_attempts ]; then
+        echo "Maximum attempts reached. Exiting."
+        exit 1
+    fi
+done
