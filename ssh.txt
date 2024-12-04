@@ -1,0 +1,13 @@
+enable
+config t
+enable password admin
+interface fastethernet 0/0
+ip address 10.10.10.1 255.0.0.0
+no shut
+exit
+ip domain name test
+username yash password yash
+hostname R
+crypto key generate RSA
+line vty 0 5
+login local
