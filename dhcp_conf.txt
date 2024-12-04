@@ -1,0 +1,13 @@
+enable
+config t
+interface fastethernet 0/0
+ip address 12.12.12.1 255.0.0.0
+no shut
+ip dhcp pool spd
+network 12.12.12.1 255.0.0.0
+dns-server 0.0.0.0
+default-router 12.12.12.2
+exit
+ip dhcp excluded-address 12.12.12.1 12.12.12.10
+exit
+wr
