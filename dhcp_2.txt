@@ -1,0 +1,29 @@
+Router 1
+
+enable
+configure terminal
+interface fastEthernet0/0
+ip address 192.168.10.1 255.255.255.0
+no shu
+ip dhcp pool IPD
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.1
+exit
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.10.12 192.168.10.14
+
+
+
+Router 2
+
+enable
+configure t
+interface fastEthernet0/0
+ip address 192.168.10.2 255.255.255.0
+no shut
+ip dhcp pool IPD
+network 192.168.10.0 255.255.255.0
+default-router 192.168.10.2
+exit
+ip dhcp excluded-address 192.168.10.1 192.168.10.10
+ip dhcp excluded-address 192.168.10.12 192.168.10.14
